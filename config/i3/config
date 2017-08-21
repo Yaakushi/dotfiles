@@ -199,7 +199,6 @@ for_window [workspace=$WS4] layout tabbed
 
 exec --no-startup-id pasystray
 exec --no-startup-id nm-applet
-exec --no-startup-id ~/scripts/auto-mount-j.sh # Mounts //data/j
 
 bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Left workspace prev
