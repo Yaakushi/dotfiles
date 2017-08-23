@@ -1,6 +1,6 @@
 .files
 ------
-[Placeholder for image.jpg]
+![Image](image.png)
 
 All the files on the root directory were renamed to remove the leading dot, so technically there is no dotfile on this repository. Sorry.
 
