@@ -199,6 +199,7 @@ for_window [workspace=$WS4] layout tabbed
 
 exec --no-startup-id pasystray
 exec --no-startup-id nm-applet
+exec --no-startup-id ~/.fehbg
 
 bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Left workspace prev

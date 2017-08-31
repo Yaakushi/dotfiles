@@ -1,0 +1,2 @@
+#!/bin/sh
+feh  --image-bg black --bg-center '/home/kaio/Desktop/7767-debian-1920x1200-computer-wallpaper.png' 
