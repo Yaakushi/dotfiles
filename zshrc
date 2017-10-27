@@ -2,13 +2,42 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/kaio/.oh-my-zsh
+export ZSH=/home/kaio/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="mortalscumbag"
 ZSH_THEME="lambda-mod"
+
+function spenttime() {
+    if [[ $# == 0 ]];
+    then
+        echo "spenttime [nome da task]"
+        echo "imprime o tempo formatado gasto em uma task do wtime"
+        return
+    fi
+    date -u -d @$(wtime -t $1 -r) +"%T"
+}
+
+function starttask() {
+    if [[ $# == 0 ]];
+    then
+        echo "starttask [nome da task]"
+        echo "inicia uma nova task ou resume contagem de tempo de uma ja existente"
+        return
+    fi
+    wtime -t $1 -a
+}
+
+function stoptask() {
+    if [[ $# = 0 ]];
+    then
+        echo "stoptask [nome da task]"
+        return
+    fi
+    wtime -t $1 -s
+}
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -85,5 +114,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=${PATH}:~/scripts/
+export PATH=${PATH}:~/scripts/:~/.local/bin/
 zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH" HOME="/root"
+
+# if [[ -r ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#     source ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+# fi
