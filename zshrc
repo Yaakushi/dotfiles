@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.local/bin/
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/kaio/.oh-my-zsh
@@ -85,6 +85,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=()
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/functions.sh
 
 # User configuration
 
@@ -114,9 +115,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=${PATH}:~/scripts/:~/.local/bin/
 zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH" HOME="/root"
 
-# if [[ -r ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-#     source ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-# fi
+#if [[ -r ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#    source ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#fi
+
+if [ "$TMUX" = "" ]; then tmux; exit; fi
+powerline-config tmux setup
